@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}发出海报 | 有堵墙,清华人的环保海报墙{% endblock %}
+{% block page_content %}
+	<div class="container">
+	<div class="span8">
+		<form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/submit/">
+		{% csrf_token %}
+			<fieldset>
+			<legend>填写海报相关信息</legend>
+			<div class="control-group {% if form.title.errors %}error{% endif %}">
+				<label class="control-label" for="id_title">活动名称</label>
+				<div class="controls">
+					{{ form.title }}					
+					<p class="help-block">{% if form.title.errors %}<div class="help-inline">{{form.title.errors}}</div><br>{% endif %}请填写海报对应活动的名称，简单明了的名称能够吸引更多人来浏览。别超过25字噢亲！</p>
+				</div>
+          		</div>
+			<div class="control-group {% if form.type.errors %}error{% endif %}">
+				<label class="control-label" for="id_type">活动类型</label>
+				<div class="controls">
+					{{ form.type }}
+					{% if form.type.errors %}<p class="help-block"><div class="help-inline">{{form.type.errors}}</div></p>{% endif %}					
+				</div>
+			</div>
+			<div class="control-group {% if form.start_time.errors %}error{% endif %}">
+				<label class="control-label" for="id_start_time">活动时间</label>
+				<div class="controls">
+					{{ form.start_time }}
+					{% if form.start_time.errors %}<p class="help-block"><div class="help-inline">{{form.start_time.errors}}</div></p>{% endif %}
+				</div>
+			</div>
+			<div class="control-group {% if form.site.errors %}error{% endif %}">
+				<label class="control-label" for="id_site">活动地点</label>
+				<div class="controls">
+					{{ form.site }}
+					{% if form.site.errors %}<p class="help-block"><div class="help-inline">{{form.site.errors}}</div></p>{% endif %}
+				</div>
+			</div>
+			<div class="control-group {% if form.link.errors %}error{% endif %}">
+				<label class="control-label" for="id_link">详情链接</label>
+				<div class="controls">
+					{{ form.link }}
+					<p class="help-block">{% if form.link.errors %}<div class="help-inline">{{form.link.errors}}</div><br>{% endif %}（可选）把相关的链接地址（如人人日志、博客日志或者相关主页地址）粘贴在这里吧。</p>
+				</div>
+			</div>
+			<hr>
+			<div class="control-group {% if form.poster.errors %}error{% endif %}">
+				<label class="control-label" for="id_poster">上传海报</label>
+				<div class="controls">
+					{{ form.poster }}
+					<p class="help-block">{% if form.poster.errors %}<div class="help-inline">{{form.poster.errors}}</div><br>{% endif %}建议使用不小于800*600像素的图片，支持jpg、jpeg、png、gif格式。<p>
+				</div>
+			</div>
+			<div class="control-group {% if form.designer.errors %}error{% endif %}">
+				<label class="control-label" for="id_designer">设计者名称</label>
+				<div class="controls">
+					{{ form.designer }}
+					<p class="help-block">{% if form.designer.errors %}<div class="help-inline">{{form.designer.errors}}</div><br>{% endif %}向这些设计师致敬！</p>
+				</div>
+          		</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">发出海报</button>
+				<a class="btn" href="/">取消</a>
+			</div>
+			</fieldset>
+		</form>
+	</div>
+	<div class="span3">
+		<h3>海报小Tips</h3>
+		<ul>
+			<li>存活周期</li>
+			<li>排序功能</li>
+			<li>统计功能</li>
+			<li>必要的审核</li>
+			<li>CC lisences</li>
+		</ul>
+		<p>出现问题，请及时联系等等等</p>
+	</div>
+	</div> <!-- /container -->
+	
+{% endblock %}
+{% block extra_head %}<link href="/static/css/jquery.ui.all.css" rel="stylesheet">{% endblock %}
+{% block extra_footer %}
+<script src="/static/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/static/js/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
+<script src="/static/js/datetimepicker.js" type="text/javascript"></script>
+<script type="text/javascript">
+$('#id_start_time').datetimepicker({
+	timeOnlyTitle: 'Выберите время',
+	timeText: '时间',
+	hourText: '小时',
+	minuteText: '分钟',
+	currentText: '现在',
+	closeText: '确认'
+});
+</script>
+
+{% endblock %}
+

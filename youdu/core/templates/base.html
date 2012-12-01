@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>	
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Helium Chen">
+
+    <!-- Le styles -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="./ico/favicon.ico">
+	{% block extra_head %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">有堵墙 <span class="badge">beta1.0</span></a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">主墙</a></li>
+              <li><a href="/about">关于</a></li>
+		<li><a href="#">订阅海报</a></li>
+		<li><a><i class="icon-map-marker icon-white"></i> 清华大学</a></li>
+            </ul>
+		<ul class="nav pull-right">
+			<li><a><i class="icon-inbox icon-white"></i> 传单夹</a></li>
+			<li class="divider-vertical"></li>
+			{% if user.is_authenticated %}
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.first_name }}<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">个人资料</a></li>
+					<li><a href="/logout/">登出</a></li>
+				</ul>
+			</li>
+			{% else %}
+			<li><a href="/login/renren/">人人登录</a></li>
+			{% endif %}
+		</ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+	
+	<div class="container header">
+	<div class="hero-unit">
+		<div class="row">
+			<div class="span4"><h1>环保集合令！</h1></div>
+			<div class="span5">坐在寝室怎么看海报？又要派遣十人小队满清华贴海报、发传单？<br>海报被盖住或者撕掉了怎么办？每次印海报都是社团的大支出？<br>传单、海报看过就丢，能不能更加绿色环保？<br>清华<span class="badge badge-error">"有堵墙"</span>帮你 handle 以上问题! <a href="#">了解更多..</a> </div>
+			<div class="span3 btn-submit">
+				<a href="/submit/" class="btn btn-large">投递海报</a>
+				<a href="#" class="btn btn-large disabled" title="传单功能将在beta1.2版本推出，敬请期待！">分发传单</a>
+			</div>
+		</div>
+	</div>
+    </div>
+	
+	{% block page_content %}{% endblock %}
+	
+	<div class="container footer">
+		<hr>
+		<p>Design and build with all the love in the world <a href="#">@Good Will Hackathon</a> by <a href="#">@HeliumChen</a>.<br>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>. Powered by <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> and <a href="http://sae.sina.com.cn/">Sina App Engine</a>.</p>
+		<p>© 2012 <a href="#">"公益骇客风"</a>诞生作品 | 让每一个精彩的公益点子成为现实</p>
+	</div>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+	{% block extra_footer %}{% endblock %}
+  </body>
+</html>

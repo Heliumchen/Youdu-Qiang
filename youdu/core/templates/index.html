@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}有堵墙 | 清华人的环保海报墙{% endblock %}
+{% block page_content %}
+    <div class="container timeline">
+	<div class="row timeline-mark timeline-mark-current">
+		<div class="span3">
+		<h3>近期海报 | 至{{recent|date:"m.d"}}</h3>
+		</div>
+	</div>
+	<div class="row timeline-box">
+		<ul class="thumbnails">
+		{% for event in recent_events %}
+		<li class="span4">
+			<div class="thumbnail">
+				<a href="/posters/{{event.id}}/" title="{{event.title}}"><img src="{% if event.small_poster %}{{event.small_poster.url}}{% endif%}"></a>
+				<div class="caption">
+					<h5><a href="/posters/{{event.id}}" title="{{event.title}}">{{event.title}}</a></h5>
+					<p><i class="icon-time"></i> {{event.start_time|date:"M d D"}} | <i class="icon-map-marker"></i> {{event.site}} | <i class="icon-heart"></i> 32人想去</p>
+				</div>
+			</div>
+		</li>
+		{% empty %}
+		<p>nothing</p>
+		{% endfor %}
+		</ul>
+	</div>
+	<div class="row timeline-mark timeline-mark-normal">
+		<div class="span3">
+		<h3>未来海报 | 至{{later|date:"m.d"}}</h3>
+		</div>
+	</div>
+	<div class="row timeline-mark timeline-mark-bottom"></div>
+    </div> <!-- /container -->
+{% endblock %}
+

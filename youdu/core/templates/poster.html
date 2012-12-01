@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}活动名称 | 有堵墙,清华人的环保海报墙{% endblock %}
+{% block page_content %}
+    </div>
+	<div class="container">
+	<div class="page-header">
+		<h1>{{event.title}}</h1>
+	</div>
+	<div class="span8 no-margin-left">
+	<div class="thumbnail poster"><img src="{{event.poster.url}}"/></div>
+	</div>
+	<div class="span3">
+		<div class="well">
+			<p><i class="icon-time"></i> {{event.start_time}}</p>
+			<p><i class="icon-map-marker"></i> {{event.site}}</p>
+			<p><i class="icon-pencil"></i> 海报由 {{event.designer}} 设计</p>
+			<p><i class="icon-heart"></i> 23 人想参加</p>
+			<p><i class="icon-user"></i> {{event.user_post.first_name}} 发布</p>
+			<p><i class="icon-info-sign"></i> <a href="{{event.link}}">详情请点击</a></p>
+		</div>
+		<p><button class="btn">我想参加</button> <button class="btn">海报好漂亮</button></p>
+		<hr>
+		<h3>二维码</h3>
+		<hr>
+		<h3>分享给朋友</h3>
+		<p></p>
+		<hr>
+		<h3>想参加的童鞋</h3>
+		<p>头像放这里</p>
+	</div>
+	</div> <!-- /container -->
+{% endblock %}
+

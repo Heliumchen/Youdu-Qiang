@@ -1,0 +1,46 @@
+.brand span {font-size:15px;}
+.row {margin-left:0px;}
+.thumbnails {margin-left:10px;}
+.thumbnails > li {margin-left:10px;}
+
+body {padding-top: 40px;}
+.header { width: 100%; }	
+.header .hero-unit { padding:20px 60px 20px 60px}
+.header .hero-unit .row div{ margin-left: 0px}
+.header .btn-submit { padding:10px 0 0 15px; border-left:1px solid #ccc; height:55px; width: 200px;}
+.footer {color:#999}
+.timeline {
+	background: url(http://assets.demohour.com/assets/projects/timeline-left-bj-d23b45175431b1a3673230819850f90a.gif) repeat-y left top;}
+
+.timeline-mark {
+	background-image: url(http://assets.demohour.com/assets/projects/timeline-bg-96bb320c3349f75a9be5590548f33450.gif);
+	background-repeat: repeat-y;
+}
+
+.timeline-mark-current {
+	height: 25px;
+	margin-bottom: 10px;
+}
+.timeline-mark-current h3{
+	color: white;
+	text-indent: 10px;
+}
+
+.timeline-mark-bottom {
+	background-position: left -174px;
+	height: 11px;
+	width: 29px;
+}
+.timeline-mark-normal {
+	background-position: left -116px;
+	height: 29px;
+	width: 28px;
+	margin-bottom: 10px;
+}
+.timeline-mark-normal h3 {
+	text-indent: 10px;
+	border: #D9D9D9 1px solid;
+	border-left: none;
+	border-radius: 5px;
+}
+.no-margin-left { margin-left:0;}
